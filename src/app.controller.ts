@@ -73,7 +73,7 @@ export class AppController {
     @Param('account_id') account_id: string,
     @Body() sendEmailDto: SendEmailDto,
     @UploadedFiles() files: { files?: Express.Multer.File[] },
-    @Res() response: Response,
+    @Res() response: any,
   ) {
     // Check the accumulative size of the files
     const totalSize = (files.files || []).reduce(
@@ -87,16 +87,17 @@ export class AppController {
 
     // If the size is within limits, proceed with the service call
     const emailAttachments: Express.Multer.File[] = files?.files || [];
-    // Manuallay handle success response
-    // response
-    //   .status(HttpStatus.OK)
-    //   .send(
-    //     await this.gmailAccountService.sendEmail(
-    //       account_id,
-    //       sendEmailDto,
-    //       emailAttachments,
-    //     ),
-    //   );
+   // Manuallay handle success response
+   
+    response
+      .status(HttpStatus.OK)
+      .send(
+        // await this.gmailAccountService.sendEmail(
+        //   account_id,
+        //   sendEmailDto,
+        //   emailAttachments,
+        //),
+      );
   }
 
 
