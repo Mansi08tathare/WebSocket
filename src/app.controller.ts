@@ -89,15 +89,19 @@ export class AppController {
     const emailAttachments: Express.Multer.File[] = files?.files || [];
    // Manuallay handle success response
    
-    response
-      .status(HttpStatus.OK)
-      .send(
-        // await this.gmailAccountService.sendEmail(
-        //   account_id,
-        //   sendEmailDto,
-        //   emailAttachments,
-        //),
-      );
+    // response
+    //   .status(HttpStatus.OK)
+    //   .send(
+    //     // await this.gmailAccountService.sendEmail(
+    //     //   account_id,
+    //     //   sendEmailDto,
+    //     //   emailAttachments,
+    //     //),
+    //   );
+    return{
+      status:HttpStatus.OK,
+      resp:"Email Send Successfully"
+    }
   }
 
 
