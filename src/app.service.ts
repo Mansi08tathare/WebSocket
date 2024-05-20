@@ -37,7 +37,8 @@ export class AppService {
 
     // Convert the sheet to JSON
     let jsonData = [];
-    console.log(jsonData)
+    // console.log(jsonData)
+    console.log("json",jsonData)
 
     // Convert each row to JSON object
     const range = xlsx.utils.decode_range(sheet['!ref']);
